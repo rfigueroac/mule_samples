@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mule-configuration xmlns="http://www.mulesoft.com/tooling/messageflow" name="hello">
+    <flow SubFlow="false" name="helloFlow1">
+        <properties>
+            <property name="processingStrategy2"/>
+            <property name="processingStrategy"/>
+        </properties>
+        <lane entity-id="a3cf2557-16d7-473f-9356-718075948b06">
+            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="d6f2acdf-fa74-437b-a2fe-b4a879495033">
+                <properties>
+                    <property value="one-way" name="exchange-pattern"/>
+                    <property value="request-response" name="exchange-pattern"/>
+                    <property value="http://www.mulesoft.org/schema/mule/http/endpoint" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
+                    <property name="httpLabel"/>
+                    <property value="localhost" name="host"/>
+                    <property value="8083" name="port"/>
+                    <property name="path"/>
+                    <property name="method"/>
+                    <property name="address"/>
+                    <property name="responseTimeout"/>
+                    <property name="encoding"/>
+                    <property name="disableTransportTransformer"/>
+                    <property name="mimeType"/>
+                    <property name="followRedirects"/>
+                    <property name="ref"/>
+                    <property name="connector-ref"/>
+                    <property name="transformer-refs"/>
+                    <property name="responseTransformer-refs"/>
+                    <property name="user"/>
+                    <property name="password"/>
+                    <property name="contentType"/>
+                    <property name="keep-alive"/>
+                </properties>
+            </endpoint>
+            <pattern type="org.mule.tooling.ui.modules.core.pattern.logger" name="Logger" entity-id="1d6076af-d524-4b92-9eba-c798ed062e0f">
+                <properties>
+                    <property name="message"/>
+                    <property value="TRACE" name="level"/>
+                    <property name="category"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/echo-component" name="Echo" entity-id="e609dfd9-e5f1-45c0-bbb0-b3449b210142"/>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/component" name="Java" entity-id="2804fa8a-9434-449b-934f-cb9c9a67d879">
+                <properties>
+                    <property value="org.mule.examples.hello.HelloComponent" name="class"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/core/logging-interceptor;0"/>
+                </properties>
+            </pattern>
+        </lane>
+    </flow>
+    <description></description>
+</mule-configuration>
